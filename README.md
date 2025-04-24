@@ -71,7 +71,7 @@ Each day in the input file will be created as a separate routine in Hevy.
 Options:
 
 -   `--input PATH`: Path to the input JSON file (default: examples/routines/runner_program.json)
--   `--title TITLE`: Base title for the routines (default: "Runner's Strength Program")
+-   `--title TITLE`: Base title for the routines (default: "")
 -   `--notes NOTES`: Notes to add to the routines (default: "Created via API")
 
 ## Routine JSON Format

@@ -168,7 +168,7 @@ def main():
     """Main function to create Hevy routines from a workout JSON file."""
     parser = argparse.ArgumentParser(description="Create Hevy routines from a workout JSON file")
     parser.add_argument("--input", default="./examples/routines/runner_program.json", help="Path to the routine JSON file")
-    parser.add_argument("--title", default="Runner's Strength Program", help="Base title for the routines")
+    parser.add_argument("--title", default="", help="Base title for the routines")
     parser.add_argument("--notes", default="Created via API", help="Notes for the routines")
     args = parser.parse_args()
 
