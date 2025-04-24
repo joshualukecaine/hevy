@@ -1,0 +1,548 @@
+{
+    "program_name": "4-Day Runner's Strength Program",
+    "program_description": "A 4-day strength training program designed specifically for runners to improve running efficiency and reduce injury risk. Each workout is designed to be completed in 45 minutes.",
+    "days": [
+        {
+            "day": 1,
+            "name": "Lower Body Strength + Core",
+            "description": "Building foundational lower body strength while targeting common runner weak spots",
+            "duration_minutes": 45,
+            "exercises": [
+                {
+                    "name": "Warm Up",
+                    "category": "Warm-up",
+                    "sets": 1,
+                    "reps": "5 minutes",
+                    "rest_seconds": 0,
+                    "notes": "Include leg swings, hip circles, ankle rotations",
+                    "exercise_template_id": "79EF4E4F",
+                    "match_info": {
+                        "matched_name": "Warm Up",
+                        "confidence": 100,
+                        "primary_muscle_group": "full_body",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Squat (Bodyweight)",
+                    "category": "Lower Body",
+                    "sets": 3,
+                    "reps": 10,
+                    "rest_seconds": 30,
+                    "notes": "Focus on form over weight",
+                    "exercise_template_id": "9694DA61",
+                    "match_info": {
+                        "matched_name": "Squat (Bodyweight)",
+                        "confidence": 100,
+                        "primary_muscle_group": "quadriceps",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Single Leg Romanian Deadlift (Dumbbell)",
+                    "category": "Lower Body",
+                    "sets": 3,
+                    "reps": 8,
+                    "rest_seconds": 30,
+                    "notes": "Each leg, start bodyweight, progress to dumbbells",
+                    "exercise_template_id": "937292AB",
+                    "match_info": {
+                        "matched_name": "Single Leg Romanian Deadlift (Dumbbell)",
+                        "confidence": 100,
+                        "primary_muscle_group": "hamstrings",
+                        "equipment": "dumbbell"
+                    }
+                },
+                {
+                    "name": "Walking Lunge",
+                    "category": "Lower Body",
+                    "sets": 3,
+                    "reps": 8,
+                    "rest_seconds": 30,
+                    "notes": "Each leg, focus on hip mobility and knee stability",
+                    "exercise_template_id": "32HKJ34K",
+                    "match_info": {
+                        "matched_name": "Walking Lunge",
+                        "confidence": 100,
+                        "primary_muscle_group": "quadriceps",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Standing Calf Raise",
+                    "category": "Lower Body",
+                    "sets": 3,
+                    "reps": 12,
+                    "rest_seconds": 30,
+                    "notes": "Alternate between straight and bent knee",
+                    "exercise_template_id": "06745E58",
+                    "match_info": {
+                        "matched_name": "Standing Calf Raise",
+                        "confidence": 100,
+                        "primary_muscle_group": "calves",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Glute Bridge",
+                    "category": "Lower Body",
+                    "sets": 3,
+                    "reps": 12,
+                    "rest_seconds": 30,
+                    "notes": "Focus on posterior chain activation",
+                    "exercise_template_id": "CDA23948",
+                    "match_info": {
+                        "matched_name": "Glute Bridge",
+                        "confidence": 100,
+                        "primary_muscle_group": "glutes",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Plank",
+                    "category": "Core",
+                    "sets": 1,
+                    "reps": "30 seconds",
+                    "rest_seconds": 10,
+                    "notes": "Focus on core engagement",
+                    "exercise_template_id": "C6C9B8A0",
+                    "match_info": {
+                        "matched_name": "Plank",
+                        "confidence": 100,
+                        "primary_muscle_group": "abdominals",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Side Plank",
+                    "category": "Core",
+                    "sets": 2,
+                    "reps": "20 seconds",
+                    "rest_seconds": 10,
+                    "notes": "Each side, maintain proper alignment",
+                    "exercise_template_id": "E3EDA509",
+                    "match_info": {
+                        "matched_name": "Side Plank",
+                        "confidence": 100,
+                        "primary_muscle_group": "abdominals",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Dead Bug",
+                    "category": "Core",
+                    "sets": 1,
+                    "reps": 10,
+                    "rest_seconds": 30,
+                    "notes": "Each side, focus on core stability",
+                    "exercise_template_id": "D8911FC4",
+                    "match_info": {
+                        "matched_name": "Dead Bug",
+                        "confidence": 100,
+                        "primary_muscle_group": "abdominals",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Stretching",
+                    "category": "Stretching",
+                    "sets": 1,
+                    "reps": "2 minutes",
+                    "rest_seconds": 0,
+                    "notes": "Focus on hip flexors, calves, hamstrings, quads",
+                    "exercise_template_id": "527DA061",
+                    "match_info": {
+                        "matched_name": "Stretching",
+                        "confidence": 100,
+                        "primary_muscle_group": "other",
+                        "equipment": "none"
+                    }
+                }
+            ]
+        },
+        {
+            "day": 2,
+            "name": "Upper Body + Running Mechanics",
+            "description": "Building upper body strength for running posture and arm drive efficiency",
+            "duration_minutes": 45,
+            "exercises": [
+                {
+                    "name": "Warm Up",
+                    "category": "Warm-up",
+                    "sets": 1,
+                    "reps": "5 minutes",
+                    "rest_seconds": 0,
+                    "notes": "Arm circles, shoulder rolls, thoracic rotations",
+                    "exercise_template_id": "79EF4E4F",
+                    "match_info": {
+                        "matched_name": "Warm Up",
+                        "confidence": 100,
+                        "primary_muscle_group": "full_body",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Push Up",
+                    "category": "Upper Body",
+                    "sets": 3,
+                    "reps": 10,
+                    "rest_seconds": 30,
+                    "notes": "Modify as needed for your strength level",
+                    "exercise_template_id": "392887AA",
+                    "match_info": {
+                        "matched_name": "Push Up",
+                        "confidence": 100,
+                        "primary_muscle_group": "chest",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Dumbbell Row",
+                    "category": "Upper Body",
+                    "sets": 3,
+                    "reps": 10,
+                    "rest_seconds": 30,
+                    "notes": "Each arm, focus on mid-back engagement",
+                    "exercise_template_id": "F1E57334",
+                    "match_info": {
+                        "matched_name": "Dumbbell Row",
+                        "confidence": 100,
+                        "primary_muscle_group": "upper_back",
+                        "equipment": "dumbbell"
+                    }
+                },
+                {
+                    "name": "Chest Supported Y Raise (Dumbbell)",
+                    "category": "Upper Body",
+                    "sets": 2,
+                    "reps": 8,
+                    "rest_seconds": 30,
+                    "notes": "Each position, light weight for shoulder stability",
+                    "exercise_template_id": "F21D5693",
+                    "match_info": {
+                        "matched_name": "Chest Supported Y Raise (Dumbbell)",
+                        "confidence": 100,
+                        "primary_muscle_group": "shoulders",
+                        "equipment": "dumbbell"
+                    }
+                },
+                {
+                    "name": "Lateral Band Walks",
+                    "category": "Lower Body",
+                    "sets": 3,
+                    "reps": 10,
+                    "rest_seconds": 30,
+                    "notes": "Steps each direction, keep tension in the band",
+                    "exercise_template_id": "EC02979E",
+                    "match_info": {
+                        "matched_name": "Lateral Band Walks",
+                        "confidence": 100,
+                        "primary_muscle_group": "glutes",
+                        "equipment": "resistance_band"
+                    }
+                },
+                {
+                    "name": "Step Up",
+                    "category": "Lower Body",
+                    "sets": 3,
+                    "reps": 8,
+                    "rest_seconds": 30,
+                    "notes": "Each leg, focus on hip drive and knee stability",
+                    "exercise_template_id": "128A2381",
+                    "match_info": {
+                        "matched_name": "Step Up",
+                        "confidence": 100,
+                        "primary_muscle_group": "quadriceps",
+                        "equipment": "other"
+                    }
+                },
+                {
+                    "name": "Ball Slams",
+                    "category": "Core",
+                    "sets": 3,
+                    "reps": 6,
+                    "rest_seconds": 30,
+                    "notes": "Each side, focus on core-to-extremity power transfer",
+                    "exercise_template_id": "F51D9080",
+                    "match_info": {
+                        "matched_name": "Ball Slams",
+                        "confidence": 100,
+                        "primary_muscle_group": "full_body",
+                        "equipment": "other"
+                    }
+                },
+                {
+                    "name": "High Knees",
+                    "category": "Running Technique",
+                    "sets": 2,
+                    "reps": "30 seconds",
+                    "rest_seconds": 30,
+                    "notes": "Practice efficient arm movement for running",
+                    "exercise_template_id": "150E076B",
+                    "match_info": {
+                        "matched_name": "High Knees",
+                        "confidence": 100,
+                        "primary_muscle_group": "glutes",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Stretching",
+                    "category": "Stretching",
+                    "sets": 1,
+                    "reps": "2 minutes",
+                    "rest_seconds": 0,
+                    "notes": "Upper body focus, include chest and back stretches",
+                    "exercise_template_id": "527DA061",
+                    "match_info": {
+                        "matched_name": "Stretching",
+                        "confidence": 100,
+                        "primary_muscle_group": "other",
+                        "equipment": "none"
+                    }
+                }
+            ]
+        },
+        {
+            "day": 4,
+            "name": "Functional Mobility + Stability",
+            "description": "Movement patterns that support running biomechanics",
+            "duration_minutes": 45,
+            "exercises": [
+                {
+                    "name": "Warm Up",
+                    "category": "Warm-up",
+                    "sets": 1,
+                    "reps": "5 minutes",
+                    "rest_seconds": 0,
+                    "notes": "Focus on hip mobility and ankle prep",
+                    "exercise_template_id": "79EF4E4F",
+                    "match_info": {
+                        "matched_name": "Warm Up",
+                        "confidence": 100,
+                        "primary_muscle_group": "full_body",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Bulgarian Split Squat",
+                    "category": "Lower Body",
+                    "sets": 3,
+                    "reps": 8,
+                    "rest_seconds": 30,
+                    "notes": "Each leg, focus on single-leg stability",
+                    "exercise_template_id": "B5D3A742",
+                    "match_info": {
+                        "matched_name": "Bulgarian Split Squat",
+                        "confidence": 100,
+                        "primary_muscle_group": "quadriceps",
+                        "equipment": "dumbbell"
+                    }
+                },
+                {
+                    "name": "Knee Raise Parallel Bars",
+                    "category": "Lower Body",
+                    "sets": 3,
+                    "reps": 12,
+                    "rest_seconds": 30,
+                    "notes": "Each leg, marching or banded knee drives",
+                    "exercise_template_id": "98237BA2",
+                    "match_info": {
+                        "matched_name": "Knee Raise Parallel Bars",
+                        "confidence": 100,
+                        "primary_muscle_group": "abdominals",
+                        "equipment": "machine"
+                    }
+                },
+                {
+                    "name": "Goblet Squat",
+                    "category": "Lower Body",
+                    "sets": 3,
+                    "reps": 10,
+                    "rest_seconds": 30,
+                    "notes": "Emphasize depth and upright posture",
+                    "exercise_template_id": "3D0C7C75",
+                    "match_info": {
+                        "matched_name": "Goblet Squat",
+                        "confidence": 100,
+                        "primary_muscle_group": "quadriceps",
+                        "equipment": "dumbbell"
+                    }
+                },
+                {
+                    "name": "Farmers Walk",
+                    "category": "Functional",
+                    "sets": 3,
+                    "reps": "30 seconds",
+                    "rest_seconds": 30,
+                    "notes": "Focus on posture and core bracing",
+                    "exercise_template_id": "50C613D0",
+                    "match_info": {
+                        "matched_name": "Farmers Walk",
+                        "confidence": 100,
+                        "primary_muscle_group": "full_body",
+                        "equipment": "other"
+                    }
+                },
+                {
+                    "name": "Lunge",
+                    "category": "Mobility",
+                    "sets": 3,
+                    "reps": "20 seconds",
+                    "rest_seconds": 10,
+                    "notes": "Each leg, focus on hip flexor and quad mobility",
+                    "exercise_template_id": "5E1A7777",
+                    "match_info": {
+                        "matched_name": "Lunge",
+                        "confidence": 100,
+                        "primary_muscle_group": "quadriceps",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Stretching",
+                    "category": "Stretching",
+                    "sets": 1,
+                    "reps": "2 minutes",
+                    "rest_seconds": 0,
+                    "notes": "Focus on hip flexors and calves",
+                    "exercise_template_id": "527DA061",
+                    "match_info": {
+                        "matched_name": "Stretching",
+                        "confidence": 100,
+                        "primary_muscle_group": "other",
+                        "equipment": "none"
+                    }
+                }
+            ]
+        },
+        {
+            "day": 5,
+            "name": "Plyometrics + Core",
+            "description": "Building power and reactive strength for running economy",
+            "duration_minutes": 45,
+            "exercises": [
+                {
+                    "name": "Warm Up",
+                    "category": "Warm-up",
+                    "sets": 1,
+                    "reps": "8 minutes",
+                    "rest_seconds": 0,
+                    "notes": "Ensure thorough warm-up before plyometrics",
+                    "exercise_template_id": "79EF4E4F",
+                    "match_info": {
+                        "matched_name": "Warm Up",
+                        "confidence": 100,
+                        "primary_muscle_group": "full_body",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Box Jump",
+                    "category": "Plyometrics",
+                    "sets": 3,
+                    "reps": 6,
+                    "rest_seconds": 45,
+                    "notes": "Start low, focus on soft landing",
+                    "exercise_template_id": "56092DD1",
+                    "match_info": {
+                        "matched_name": "Box Jump",
+                        "confidence": 100,
+                        "primary_muscle_group": "quadriceps",
+                        "equipment": "other"
+                    }
+                },
+                {
+                    "name": "Lateral Box Jump",
+                    "category": "Plyometrics",
+                    "sets": 3,
+                    "reps": 6,
+                    "rest_seconds": 45,
+                    "notes": "Each side, focus on control and lateral stability",
+                    "exercise_template_id": "07EBC4DC",
+                    "match_info": {
+                        "matched_name": "Lateral Box Jump",
+                        "confidence": 100,
+                        "primary_muscle_group": "quadriceps",
+                        "equipment": "other"
+                    }
+                },
+                {
+                    "name": "Jumping Lunge",
+                    "category": "Plyometrics",
+                    "sets": 3,
+                    "reps": 5,
+                    "rest_seconds": 45,
+                    "notes": "Each leg, start with minimal height",
+                    "exercise_template_id": "5CC07A1F",
+                    "match_info": {
+                        "matched_name": "Jumping Lunge",
+                        "confidence": 100,
+                        "primary_muscle_group": "quadriceps",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Russian Twist (Bodyweight)",
+                    "category": "Core",
+                    "sets": 2,
+                    "reps": 12,
+                    "rest_seconds": 30,
+                    "notes": "Each side, control the movement",
+                    "exercise_template_id": "BB83BDDE",
+                    "match_info": {
+                        "matched_name": "Russian Twist (Bodyweight)",
+                        "confidence": 100,
+                        "primary_muscle_group": "abdominals",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Mountain Climber",
+                    "category": "Core",
+                    "sets": 2,
+                    "reps": "30 seconds",
+                    "rest_seconds": 30,
+                    "notes": "Maintain plank position throughout",
+                    "exercise_template_id": "F49E31D6",
+                    "match_info": {
+                        "matched_name": "Mountain Climber",
+                        "confidence": 100,
+                        "primary_muscle_group": "full_body",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "High Knee Skips",
+                    "category": "Running Technique",
+                    "sets": 1,
+                    "reps": "3 minutes",
+                    "rest_seconds": 0,
+                    "notes": "A-skips, B-skips, high knees, butt kicks",
+                    "exercise_template_id": "C9CCB878",
+                    "match_info": {
+                        "matched_name": "High Knee Skips",
+                        "confidence": 100,
+                        "primary_muscle_group": "quadriceps",
+                        "equipment": "none"
+                    }
+                },
+                {
+                    "name": "Stretching",
+                    "category": "Stretching",
+                    "sets": 1,
+                    "reps": "2 minutes",
+                    "rest_seconds": 0,
+                    "notes": "Full body stretching with emphasis on legs",
+                    "exercise_template_id": "527DA061",
+                    "match_info": {
+                        "matched_name": "Stretching",
+                        "confidence": 100,
+                        "primary_muscle_group": "other",
+                        "equipment": "none"
+                    }
+                }
+            ]
+        }
+    ]
+}
