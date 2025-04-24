@@ -1,0 +1,76 @@
+{
+    "program_name": "Simple Workout Program",
+    "program_description": "A basic workout program with two days: upper body and lower body",
+    "days": [
+        {
+            "day": 1,
+            "name": "Upper Body Day",
+            "description": "Focus on chest, back, and arms",
+            "duration_minutes": 45,
+            "exercises": [
+                {
+                    "name": "Warm Up",
+                    "category": "Warm-up",
+                    "sets": 1,
+                    "reps": "5 minutes",
+                    "rest_seconds": 0,
+                    "notes": "Light cardio and arm circles",
+                    "exercise_template_id": "79EF4E4F"
+                },
+                {
+                    "name": "Push Up",
+                    "category": "Chest",
+                    "sets": 3,
+                    "reps": 10,
+                    "rest_seconds": 60,
+                    "notes": "Focus on form",
+                    "exercise_template_id": "392887AA"
+                },
+                {
+                    "name": "Dumbbell Row",
+                    "category": "Back",
+                    "sets": 3,
+                    "reps": 12,
+                    "rest_seconds": 60,
+                    "notes": "Each arm, focus on squeezing the back",
+                    "exercise_template_id": "F1E57334"
+                }
+            ]
+        },
+        {
+            "day": 2,
+            "name": "Lower Body Day",
+            "description": "Focus on legs and core",
+            "duration_minutes": 45,
+            "exercises": [
+                {
+                    "name": "Warm Up",
+                    "category": "Warm-up",
+                    "sets": 1,
+                    "reps": "5 minutes",
+                    "rest_seconds": 0,
+                    "notes": "Light cardio and leg swings",
+                    "exercise_template_id": "79EF4E4F"
+                },
+                {
+                    "name": "Squat (Bodyweight)",
+                    "category": "Legs",
+                    "sets": 3,
+                    "reps": 15,
+                    "rest_seconds": 60,
+                    "notes": "Focus on depth and form",
+                    "exercise_template_id": "9694DA61"
+                },
+                {
+                    "name": "Plank",
+                    "category": "Core",
+                    "sets": 3,
+                    "reps": "30 seconds",
+                    "rest_seconds": 30,
+                    "notes": "Keep core tight",
+                    "exercise_template_id": "C6C9B8A0"
+                }
+            ]
+        }
+    ]
+}
