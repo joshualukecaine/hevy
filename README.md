@@ -23,7 +23,7 @@ A Python toolkit for interacting with the Hevy workout app API. This project all
 1. Clone this repository:
 
     ```
-    git clone https://github.com/yourusername/hevy.git
+    git clone https://github.com/joshualukecaine/hevy.git
     cd hevy
     ```
 
