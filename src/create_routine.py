@@ -150,7 +150,12 @@ def process_day(day_data: Dict, base_title: str, notes: str, name_to_id_map: Dic
     """Process a single day and create a routine in Hevy."""
     day_number = day_data.get("day", 0)
     day_name = day_data.get("name", f"Day {day_number}")
-    day_title = f"{base_title} - {day_name}"
+    
+    # Only add the base_title and separator if base_title is not empty
+    if base_title:
+        day_title = f"{base_title} - {day_name}"
+    else:
+        day_title = day_name
     
     print(f"Creating routine '{day_title}'...")
     
