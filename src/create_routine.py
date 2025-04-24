@@ -4,17 +4,25 @@ Create Hevy Routines
 
 Creates workout routines in Hevy from a JSON file with exercise data.
 Each day in the input file becomes a separate routine in Hevy.
+All routines are organized in a folder named after the program_name in the JSON file.
 
 Usage:
-    python create_routine.py [--input INPUT] [--title TITLE] [--notes NOTES]
+    python create_routine.py [--input INPUT] [--title TITLE] [--notes NOTES] [--folder FOLDER]
 """
 
 import os
 import json
 import argparse
+import datetime
 from typing import Dict, List, Any, Optional
 
-from utils.hevy_api import load_api_key, load_json_file, post_to_hevy, is_valid_hevy_id
+from utils.hevy_api import (
+    load_api_key, 
+    load_json_file, 
+    post_to_hevy, 
+    is_valid_hevy_id,
+    create_routine_folder
+)
 
 
 def parse_duration_to_seconds(rep_value: str) -> int:
@@ -134,19 +142,19 @@ def create_day_exercises(day: Dict, name_to_id_map: Dict[str, str]) -> List[Dict
     return valid_exercises
 
 
-def create_routine_payload(exercises: List[Dict], title: str, notes: str) -> Dict:
+def create_routine_payload(exercises: List[Dict], title: str, notes: str, folder_id: Optional[str] = None) -> Dict:
     """Create the routine payload for the Hevy API."""
     return {
         "routine": {
             "title": title,
-            "folder_id": None,
+            "folder_id": folder_id,
             "notes": notes,
             "exercises": exercises
         }
     }
 
 
-def process_day(day_data: Dict, base_title: str, notes: str, name_to_id_map: Dict[str, str], api_key: str) -> str:
+def process_day(day_data: Dict, base_title: str, notes: str, name_to_id_map: Dict[str, str], api_key: str, folder_id: Optional[str] = None) -> str:
     """Process a single day and create a routine in Hevy."""
     day_number = day_data.get("day", 0)
     day_name = day_data.get("name", f"Day {day_number}")
@@ -160,7 +168,7 @@ def process_day(day_data: Dict, base_title: str, notes: str, name_to_id_map: Dic
     print(f"Creating routine '{day_title}'...")
     
     exercises = create_day_exercises(day_data, name_to_id_map)
-    routine_payload = create_routine_payload(exercises, day_title, notes)
+    routine_payload = create_routine_payload(exercises, day_title, notes, folder_id)
     
     response = post_to_hevy("routines", routine_payload, api_key)
     routine_id = response.get("routine", [{}])[0].get("id", "unknown")
@@ -175,6 +183,7 @@ def main():
     parser.add_argument("--input", default="./examples/routines/runner_program.json", help="Path to the routine JSON file")
     parser.add_argument("--title", default="", help="Base title for the routines")
     parser.add_argument("--notes", default="Created via API", help="Notes for the routines")
+    parser.add_argument("--folder", help="Custom folder name (defaults to program_name or timestamp)")
     args = parser.parse_args()
 
     try:
@@ -184,12 +193,25 @@ def main():
         routine_data = load_json_file(args.input)
         name_to_id_map = get_exercise_templates()
         
+        # Create a folder for the routines
+        folder_name = args.folder
+        if not folder_name:
+            # Use program_name if available, otherwise use a timestamp
+            if "program_name" in routine_data and routine_data["program_name"]:
+                folder_name = routine_data["program_name"]
+            else:
+                folder_name = f"Routines {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}"
+        
+        print(f"Creating routine folder '{folder_name}'...")
+        folder_id = create_routine_folder(folder_name, api_key)
+        print(f"Folder created with ID: {folder_id}")
+        
         routine_ids = []
         for day_data in routine_data.get("days", []):
-            routine_id = process_day(day_data, args.title, args.notes, name_to_id_map, api_key)
+            routine_id = process_day(day_data, args.title, args.notes, name_to_id_map, api_key, folder_id)
             routine_ids.append(routine_id)
         
-        print(f"Done! Created {len(routine_ids)} routines in Hevy.")
+        print(f"Done! Created {len(routine_ids)} routines in folder '{folder_name}'.")
         return 0
         
     except Exception as e:

@@ -70,3 +70,20 @@ def get_from_hevy(endpoint: str, api_key: str, params: Optional[Dict] = None) ->
 def is_valid_hevy_id(template_id: str) -> bool:
     """Check if the template ID is a valid Hevy ID format (8 character hexadecimal)."""
     return len(template_id) == 8 and all(c in "0123456789ABCDEF" for c in template_id)
+
+
+def create_routine_folder(title: str, api_key: str) -> str:
+    """Create a routine folder and return its ID."""
+    payload = {
+        "routine_folder": {
+            "title": title
+        }
+    }
+    
+    response = post_to_hevy("routine_folders", payload, api_key)
+    folder_id = response.get("routine_folder", {}).get("id")
+    
+    if not folder_id:
+        raise Exception("Failed to create routine folder")
+        
+    return folder_id

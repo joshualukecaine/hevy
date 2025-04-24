@@ -7,6 +7,7 @@ A Python toolkit for interacting with the Hevy workout app API. This project all
 -   Fetch exercise templates from Hevy API
 -   Create workout routines from JSON files
 -   Support for multi-day workout programs
+-   Organize routines in folders based on program name
 -   Handles various exercise types (reps, time-based, etc.)
 -   Validates exercise template IDs
 
@@ -66,13 +67,14 @@ To create workout routines in Hevy from a JSON file:
 python src/create_routine.py --input examples/routines/simple_workout.json
 ```
 
-Each day in the input file will be created as a separate routine in Hevy.
+Each day in the input file will be created as a separate routine in Hevy. All routines are automatically organized in a folder in the Hevy app.
 
 Options:
 
 -   `--input PATH`: Path to the input JSON file (default: examples/routines/runner_program.json)
 -   `--title TITLE`: Base title for the routines (default: "")
 -   `--notes NOTES`: Notes to add to the routines (default: "Created via API")
+-   `--folder NAME`: Custom folder name (defaults to program_name from the JSON file or a timestamp)
 
 ## Routine JSON Format
 
@@ -106,7 +108,7 @@ The input JSON file should follow this structure:
 
 ### Key Fields
 
--   **program_name**: Name of the overall program
+-   **program_name**: Name of the overall program (also used as the folder name in Hevy)
 -   **program_description**: Description of the program
 -   **days**: Array of workout days
     -   **day**: Day number (1, 2, 3, etc.)
