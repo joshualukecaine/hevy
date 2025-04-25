@@ -75,6 +75,9 @@ Options:
 -   `--title TITLE`: Base title for the routines (default: "")
 -   `--notes NOTES`: Notes to add to the routines (default: "Created via API")
 -   `--folder NAME`: Custom folder name (defaults to program_name from the JSON file or a timestamp)
+-   `--validate-only`: Only validate the routine without creating it (no API key needed)
+
+The `--validate-only` flag is useful for checking your routine file for errors before attempting to create it in Hevy. This mode doesn't require an API key, making it perfect for validating routines during development or before sharing them.
 
 ## Routine JSON Format
 
