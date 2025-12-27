@@ -4,7 +4,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 from hevy.models import ExerciseTemplate
 
@@ -67,8 +67,8 @@ class TemplateCache:
             List of template dictionaries
         """
         with open(self.cache_path, encoding="utf-8") as f:
-            data = json.load(f)
-        return data.get("templates", [])
+            data: dict[str, Any] = json.load(f)
+        return cast(list[dict[str, Any]], data.get("templates", []))
 
     def save(self, templates: list[ExerciseTemplate]) -> None:
         """Save templates to the cache file.

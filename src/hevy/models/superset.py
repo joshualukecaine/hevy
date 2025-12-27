@@ -1,5 +1,7 @@
 """Superset and circuit models."""
 
+from typing import Any
+
 from pydantic import BaseModel, Field
 
 
@@ -46,7 +48,7 @@ class Superset(BaseModel):
     """
 
     name: str = ""
-    exercises: list[dict] = Field(default_factory=list)
+    exercises: list[dict[str, Any]] = Field(default_factory=list)
     rounds: int = 1
     rest_between_exercises: int = 0
     rest_between_rounds: int = 60
@@ -79,7 +81,7 @@ class Superset(BaseModel):
         return "Single Exercise"
 
     @classmethod
-    def from_json(cls, data: dict, is_circuit: bool = False) -> "Superset":
+    def from_json(cls, data: dict[str, Any], is_circuit: bool = False) -> "Superset":
         """Create a Superset from JSON data.
 
         Args:
@@ -98,7 +100,7 @@ class Superset(BaseModel):
             rest_between_rounds=data.get("rest_between_rounds", 60),
         )
 
-    def expand_exercises(self, superset_id: int) -> list[dict]:
+    def expand_exercises(self, superset_id: int) -> list[dict[str, Any]]:
         """Expand the superset into individual exercises with superset_id.
 
         For circuits with multiple rounds, each exercise gets sets = rounds.

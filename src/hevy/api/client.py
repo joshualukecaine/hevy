@@ -3,7 +3,7 @@
 import logging
 import os
 import time
-from typing import Any
+from typing import Any, cast
 
 import requests
 from dotenv import load_dotenv
@@ -90,8 +90,8 @@ class HevyClient:
         self,
         method: str,
         endpoint: str,
-        data: dict | None = None,
-        params: dict | None = None,
+        data: dict[str, Any] | None = None,
+        params: dict[str, Any] | None = None,
         retries: int = MAX_RETRIES,
     ) -> dict[str, Any]:
         """Make a request to the Hevy API with retry logic.
@@ -123,7 +123,7 @@ class HevyClient:
 
             # Handle different status codes
             if response.status_code in (200, 201):
-                return response.json()
+                return cast(dict[str, Any], response.json())
 
             if response.status_code == 401:
                 raise HevyAuthenticationError()
@@ -165,15 +165,15 @@ class HevyClient:
                 return self._request(method, endpoint, data, params, retries - 1)
             raise HevyAPIError(f"Connection error: {e}") from e
 
-    def get(self, endpoint: str, params: dict | None = None) -> dict[str, Any]:
+    def get(self, endpoint: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
         """Make a GET request."""
         return self._request("GET", endpoint, params=params)
 
-    def post(self, endpoint: str, data: dict) -> dict[str, Any]:
+    def post(self, endpoint: str, data: dict[str, Any]) -> dict[str, Any]:
         """Make a POST request."""
         return self._request("POST", endpoint, data=data)
 
-    def put(self, endpoint: str, data: dict) -> dict[str, Any]:
+    def put(self, endpoint: str, data: dict[str, Any]) -> dict[str, Any]:
         """Make a PUT request."""
         return self._request("PUT", endpoint, data=data)
 
@@ -275,7 +275,7 @@ class HevyClient:
         page: int = 1,
         per_page: int = 20,
         folder_id: str | None = None,
-    ) -> list[dict]:
+    ) -> list[dict[str, Any]]:
         """Fetch routines from the API.
 
         Args:
@@ -290,9 +290,9 @@ class HevyClient:
         if folder_id:
             params["folder_id"] = folder_id
         response = self.get("routines", params=params)
-        return response.get("routines", [])
+        return cast(list[dict[str, Any]], response.get("routines", []))
 
-    def update_routine(self, routine_id: str, routine: Routine) -> dict:
+    def update_routine(self, routine_id: str, routine: Routine) -> dict[str, Any]:
         """Update an existing routine.
 
         Args:
@@ -329,13 +329,13 @@ class HevyClient:
         self,
         page: int = 1,
         per_page: int = 20,
-    ) -> list[dict]:
+    ) -> list[dict[str, Any]]:
         """Fetch routine folders from the API."""
         response = self.get(
             "routine_folders",
             params={"page": page, "per_page": per_page},
         )
-        return response.get("routine_folders", [])
+        return cast(list[dict[str, Any]], response.get("routine_folders", []))
 
     # --- Workouts ---
 
@@ -343,15 +343,15 @@ class HevyClient:
         self,
         page: int = 1,
         per_page: int = 20,
-    ) -> list[dict]:
+    ) -> list[dict[str, Any]]:
         """Fetch workouts from the API."""
         response = self.get(
             "workouts",
             params={"page": page, "per_page": per_page},
         )
-        return response.get("workouts", [])
+        return cast(list[dict[str, Any]], response.get("workouts", []))
 
     def get_workout_count(self) -> int:
         """Get total number of workouts."""
         response = self.get("workouts/count")
-        return response.get("count", 0)
+        return cast(int, response.get("count", 0))

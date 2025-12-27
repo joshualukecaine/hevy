@@ -1,6 +1,7 @@
 """Exercise-related data models."""
 
 from enum import Enum
+from typing import Any
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -25,7 +26,7 @@ class ExerciseSet(BaseModel):
     custom_metric: float | None = None
     rpe: float | None = Field(None, ge=1, le=10)
 
-    def to_api_format(self) -> dict:
+    def to_api_format(self) -> dict[str, Any]:
         """Convert to Hevy API format for routines.
 
         Note: RPE is only allowed in workouts, not routines.
@@ -76,7 +77,7 @@ class Exercise(BaseModel):
             raise ValueError(f"Invalid template ID format: {v}")
         return v
 
-    def to_api_format(self) -> dict:
+    def to_api_format(self) -> dict[str, Any]:
         """Convert to Hevy API format."""
         return {
             "exercise_template_id": self.exercise_template_id,
@@ -89,7 +90,7 @@ class Exercise(BaseModel):
     @classmethod
     def from_json(
         cls,
-        data: dict,
+        data: dict[str, Any],
         superset_id: int | None = None,
     ) -> "Exercise":
         """Create Exercise from JSON routine format.
@@ -108,7 +109,7 @@ class Exercise(BaseModel):
         )
 
     @staticmethod
-    def _parse_sets(data: dict) -> list["ExerciseSet"]:
+    def _parse_sets(data: dict[str, Any]) -> list["ExerciseSet"]:
         """Parse sets from JSON data."""
         # If detailed sets are provided, use them
         if "detailed_sets" in data:
@@ -146,7 +147,7 @@ class ExerciseTemplate(BaseModel):
     is_custom: bool = False
 
     @classmethod
-    def from_api_response(cls, data: dict) -> "ExerciseTemplate":
+    def from_api_response(cls, data: dict[str, Any]) -> "ExerciseTemplate":
         """Create from Hevy API response."""
         return cls(
             id=data.get("id", ""),

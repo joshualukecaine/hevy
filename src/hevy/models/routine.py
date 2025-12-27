@@ -1,5 +1,7 @@
 """Routine and workout program models."""
 
+from typing import Any
+
 from pydantic import BaseModel, Field
 
 from hevy.models.exercise import Exercise
@@ -16,7 +18,7 @@ class WorkoutDay(BaseModel):
     exercises: list[Exercise] = Field(default_factory=list)
 
     @classmethod
-    def from_json(cls, data: dict) -> "WorkoutDay":
+    def from_json(cls, data: dict[str, Any]) -> "WorkoutDay":
         """Create WorkoutDay from JSON routine format.
 
         Supports both regular exercises and supersets/circuits:
@@ -92,7 +94,7 @@ class WorkoutProgram(BaseModel):
     days: list[WorkoutDay] = Field(default_factory=list)
 
     @classmethod
-    def from_json(cls, data: dict) -> "WorkoutProgram":
+    def from_json(cls, data: dict[str, Any]) -> "WorkoutProgram":
         """Create WorkoutProgram from JSON file format."""
         days = [WorkoutDay.from_json(d) for d in data.get("days", [])]
         return cls(
@@ -122,7 +124,7 @@ class Routine(BaseModel):
     notes: str = ""
     exercises: list[Exercise] = Field(default_factory=list)
 
-    def to_api_format(self) -> dict:
+    def to_api_format(self) -> dict[str, Any]:
         """Convert to Hevy API request format."""
         return {
             "routine": {
@@ -158,7 +160,7 @@ class RoutineFolder(BaseModel):
     title: str
     index: int = 0
 
-    def to_api_format(self) -> dict:
+    def to_api_format(self) -> dict[str, Any]:
         """Convert to Hevy API request format."""
         return {
             "routine_folder": {

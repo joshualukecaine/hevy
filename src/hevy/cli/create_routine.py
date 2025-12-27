@@ -14,6 +14,7 @@ import logging
 import sys
 from datetime import datetime
 from pathlib import Path
+from typing import Any
 
 from hevy.api import HevyAPIError, HevyClient
 from hevy.cli.logging_config import setup_logging
@@ -144,7 +145,7 @@ def print_validation_errors(errors: list[ValidationError]) -> None:
 
 def interactive_fix(
     errors: list[ValidationError],
-    program_data: dict,
+    program_data: dict[str, Any],
     input_path: str,
 ) -> bool:
     """Interactively fix validation errors.
