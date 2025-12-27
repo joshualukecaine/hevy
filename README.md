@@ -1,6 +1,6 @@
 # Hevy CLI
 
-[![CI](https://github.com/joshualukecaine/hevy/actions/workflows/ci.yml/badge.svg)](https://github.com/joshualukecaine/hevy/actions/workflows/ci.yml)
+[![CI](https://github.com/joshualukecaine/hevy-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/joshualukecaine/hevy-cli/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -9,8 +9,8 @@ A Python CLI for creating workout routines in [Hevy](https://hevyapp.com) from J
 ## Installation
 
 ```bash
-git clone https://github.com/joshualukecaine/hevy.git
-cd hevy
+git clone https://github.com/joshualukecaine/hevy-cli.git
+cd hevy-cli
 python3 -m venv venv
 source venv/bin/activate
 pip install -e .

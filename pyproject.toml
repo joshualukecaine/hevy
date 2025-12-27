@@ -44,8 +44,8 @@ hevy-fetch = "hevy.cli.fetch_templates:main"
 hevy-create = "hevy.cli.create_routine:main"
 
 [project.urls]
-Homepage = "https://github.com/joshualukecaine/hevy"
-Repository = "https://github.com/joshualukecaine/hevy"
+Homepage = "https://github.com/joshualukecaine/hevy-cli"
+Repository = "https://github.com/joshualukecaine/hevy-cli"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/hevy"]
