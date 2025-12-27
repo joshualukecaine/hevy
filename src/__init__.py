@@ -1,3 +1,0 @@
-"""
-Hevy API Integration Package
-"""
