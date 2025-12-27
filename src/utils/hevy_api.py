@@ -68,8 +68,27 @@ def get_from_hevy(endpoint: str, api_key: str, params: Optional[Dict] = None) ->
 
 
 def is_valid_hevy_id(template_id: str) -> bool:
-    """Check if the template ID is a valid Hevy ID format (8 character hexadecimal)."""
-    return len(template_id) == 8 and all(c in "0123456789ABCDEF" for c in template_id)
+    """Check if the template ID is a valid Hevy ID format.
+    
+    Accepts both formats:
+    - 8 character hexadecimal (e.g., '3D0C7C75') - built-in exercises
+    - UUID format (e.g., '13084c79-fd76-432e-b7d6-4ad3c67ddf81') - custom exercises
+    """
+    if not template_id:
+        return False
+    
+    # Check for 8-character hex format (built-in exercises)
+    if len(template_id) == 8:
+        return all(c in "0123456789ABCDEFabcdef" for c in template_id)
+    
+    # Check for UUID format (custom exercises)
+    # Format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    if len(template_id) == 36 and template_id.count('-') == 4:
+        parts = template_id.split('-')
+        if len(parts) == 5 and len(parts[0]) == 8 and len(parts[1]) == 4 and len(parts[2]) == 4 and len(parts[3]) == 4 and len(parts[4]) == 12:
+            return all(c in "0123456789ABCDEFabcdef-" for c in template_id)
+    
+    return False
 
 
 def create_routine_folder(title: str, api_key: str) -> str:
