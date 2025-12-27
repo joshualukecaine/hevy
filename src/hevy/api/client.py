@@ -305,6 +305,15 @@ class HevyClient:
         logger.info("Updating routine: %s", routine_id)
         return self.put(f"routines/{routine_id}", routine.to_api_format())
 
+    def delete_routine(self, routine_id: str) -> None:
+        """Delete a routine.
+
+        Args:
+            routine_id: ID of routine to delete
+        """
+        logger.info("Deleting routine: %s", routine_id)
+        self.delete(f"routines/{routine_id}")
+
     # --- Routine Folders ---
 
     def create_routine_folder(self, title: str) -> str:
@@ -336,6 +345,25 @@ class HevyClient:
             params={"page": page, "per_page": per_page},
         )
         return cast(list[dict[str, Any]], response.get("routine_folders", []))
+
+    def delete_routine_folder(self, folder_id: str, delete_routines: bool = True) -> None:
+        """Delete a routine folder.
+
+        Args:
+            folder_id: ID of folder to delete
+            delete_routines: If True, delete all routines in the folder first
+        """
+        logger.info("Deleting routine folder: %s", folder_id)
+
+        if delete_routines:
+            # Fetch and delete all routines in this folder
+            routines = self.get_routines(folder_id=folder_id)
+            for routine in routines:
+                routine_id = str(routine.get("id", ""))
+                if routine_id:
+                    self.delete_routine(routine_id)
+
+        self.delete(f"routine_folders/{folder_id}")
 
     # --- Workouts ---
 

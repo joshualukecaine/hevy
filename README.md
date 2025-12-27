@@ -34,6 +34,17 @@ hevy validate --input workout.json
 # Create routines in Hevy
 hevy create --input workout.json
 hevy create --input workout.json --folder "My Program"
+
+# List routines and folders
+hevy list
+hevy list --folders
+hevy list --routines --folder-id 12345
+
+# Delete routines or folders
+hevy delete --routine abc123
+hevy delete --routine abc123 --routine def456
+hevy delete --folder xyz789
+hevy delete --folder xyz789 --keep-routines
 ```
 
 ## Routine Format

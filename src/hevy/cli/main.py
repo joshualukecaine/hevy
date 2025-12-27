@@ -13,7 +13,7 @@ import argparse
 import sys
 
 from hevy import __version__
-from hevy.cli import create_routine, fetch_templates
+from hevy.cli import create_routine, delete_routine, fetch_templates, list_routines
 from hevy.cli.logging_config import setup_logging
 
 
@@ -28,12 +28,17 @@ Commands:
     fetch     Download exercise templates from Hevy
     create    Create routines from JSON files
     validate  Validate a routine file without creating it
+    list      List routines and folders
+    delete    Delete routines or folders
 
 Examples:
     hevy fetch --force
     hevy create --input workout.json
-    hevy create --input workout.json --validate-only
     hevy validate --input workout.json
+    hevy list
+    hevy list --folders
+    hevy delete --routine abc123
+    hevy delete --folder xyz789
 
 For more information on a specific command:
     hevy <command> --help
@@ -126,6 +131,59 @@ For more information on a specific command:
         help="Path to the routine JSON file",
     )
 
+    # List command
+    list_parser = subparsers.add_parser(
+        "list",
+        help="List routines and folders",
+        description="Display routines and folders from your Hevy account",
+    )
+    list_parser.add_argument(
+        "--folders",
+        action="store_true",
+        help="List folders only",
+    )
+    list_parser.add_argument(
+        "--routines",
+        action="store_true",
+        help="List routines only",
+    )
+    list_parser.add_argument(
+        "--folder-id",
+        help="Filter routines by folder ID",
+    )
+
+    # Delete command
+    delete_parser = subparsers.add_parser(
+        "delete",
+        help="Delete routines or folders",
+        description="Delete routines or folders from your Hevy account",
+    )
+    delete_parser.add_argument(
+        "--routine",
+        "-r",
+        action="append",
+        dest="routines",
+        metavar="ID",
+        help="Routine ID to delete (can be specified multiple times)",
+    )
+    delete_parser.add_argument(
+        "--folder",
+        "-f",
+        metavar="ID",
+        help="Folder ID to delete",
+    )
+    delete_parser.add_argument(
+        "--keep-routines",
+        action="store_true",
+        help="When deleting a folder, keep the routines",
+    )
+    delete_parser.add_argument(
+        "--yes",
+        "-y",
+        action="store_true",
+        help="Skip confirmation prompt",
+    )
+
     return parser
 
 
@@ -180,6 +238,33 @@ def main(args: list[str] | None = None) -> int:
         if parsed_args.verbose:
             create_args.append("--verbose")
         return create_routine.main(create_args)
+
+    if parsed_args.command == "list":
+        list_args: list[str] = []
+        if parsed_args.folders:
+            list_args.append("--folders")
+        if parsed_args.routines:
+            list_args.append("--routines")
+        if parsed_args.folder_id:
+            list_args.extend(["--folder-id", parsed_args.folder_id])
+        if parsed_args.verbose:
+            list_args.append("--verbose")
+        return list_routines.main(list_args)
+
+    if parsed_args.command == "delete":
+        delete_args: list[str] = []
+        if parsed_args.routines:
+            for routine_id in parsed_args.routines:
+                delete_args.extend(["--routine", routine_id])
+        if parsed_args.folder:
+            delete_args.extend(["--folder", parsed_args.folder])
+        if parsed_args.keep_routines:
+            delete_args.append("--keep-routines")
+        if parsed_args.yes:
+            delete_args.append("--yes")
+        if parsed_args.verbose:
+            delete_args.append("--verbose")
+        return delete_routine.main(delete_args)
 
     return 0
 
