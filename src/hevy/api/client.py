@@ -260,7 +260,13 @@ class HevyClient:
         """
         logger.info("Creating routine: %s", routine.title)
         response = self.post("routines", routine.to_api_format())
-        routine_id = response.get("routine", {}).get("id", "")
+        # API may return {"routine": {...}} or {"routine": [{...}]}
+        routine_data = response.get("routine", {})
+        if isinstance(routine_data, list):
+            routine_id = routine_data[0].get("id", "") if routine_data else ""
+        else:
+            routine_id = routine_data.get("id", "")
+        routine_id = str(routine_id) if routine_id else ""
         logger.info("Created routine with ID: %s", routine_id)
         return routine_id
 
@@ -314,6 +320,8 @@ class HevyClient:
         folder = RoutineFolder(title=title)
         response = self.post("routine_folders", folder.to_api_format())
         folder_id = response.get("routine_folder", {}).get("id", "")
+        # API may return int, ensure we return string
+        folder_id = str(folder_id) if folder_id else ""
         logger.info("Created folder with ID: %s", folder_id)
         return folder_id
 

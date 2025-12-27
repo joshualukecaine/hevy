@@ -26,7 +26,10 @@ class ExerciseSet(BaseModel):
     rpe: float | None = Field(None, ge=1, le=10)
 
     def to_api_format(self) -> dict:
-        """Convert to Hevy API format."""
+        """Convert to Hevy API format for routines.
+
+        Note: RPE is only allowed in workouts, not routines.
+        """
         return {
             "type": self.type.value,
             "weight_kg": self.weight_kg,
@@ -34,7 +37,6 @@ class ExerciseSet(BaseModel):
             "distance_meters": self.distance_meters,
             "duration_seconds": self.duration_seconds,
             "custom_metric": self.custom_metric,
-            "rpe": self.rpe,
         }
 
 
